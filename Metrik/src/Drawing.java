@@ -25,8 +25,8 @@ public class Drawing extends Canvas implements MouseListener {
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setColor(Color.green);
 		g2d.setStroke(new BasicStroke(5));
-		Ellipse2D circle = new Ellipse2D.Float(_x, _y, 100, 100);
-		g2d.draw(circle);
+		Rectangle2D rect = new Rectangle2D.Float(_x, _y, 100, 100);
+		g2d.draw(rect);
 		
 		if (count % 3 == 0)
 			g2d.clearRect(0, 0, _canvasSize, _canvasSize);

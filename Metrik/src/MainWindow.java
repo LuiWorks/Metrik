@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class MainWindow extends Frame implements WindowListener {
 	
 	public MainWindow() {
-		setTitle("Programm für Aufgabe 1 in Softwaretechnik Verison 1.0");
+		setTitle("Programm für Aufgabe 1 in Softwaretechnik Verison 1.0.1");
 		setSize(700, 700); 
 		addWindowListener(this);
 		add(new Drawing()); 
