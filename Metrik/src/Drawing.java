@@ -1,21 +1,28 @@
 
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.*;
 
 public class Drawing extends Canvas implements MouseListener {
 
+	MainMenuBar menu = new MainMenuBar(); 
+	
 	private float _x, _y;
 	private int _canvasSize = 700; 
 	private int count = 0;
 
-	public Drawing() {
+	public Drawing(Color color) {
 		_x = _y = 0;
 		setSize(_canvasSize, _canvasSize);
-		setBackground(Color.gray);
+		setBackground(color);
 		addMouseListener(this);
+		
+		
 	}
+
+	
 
 	@Override
 	public void paint(Graphics g) {
@@ -24,20 +31,26 @@ public class Drawing extends Canvas implements MouseListener {
 
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setColor(Color.green);
+		g2d.setBackground(MainWindow.isSetColor.getBackgroundColor());
 		g2d.setStroke(new BasicStroke(5));
 		Ellipse2D circle = new Ellipse2D.Float(_x, _y, 100, 100);
 		g2d.draw(circle);
 		
-		if (count % 3 == 0)
+		if (count % 3 == 0) {
 			g2d.clearRect(0, 0, _canvasSize, _canvasSize);
+		}
 	}
 
+
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		_x = e.getX();
 		_y = e.getY();
-		paint(getGraphics());
 		
+
+		paint(getGraphics());
+
 		count++;
 	}
 

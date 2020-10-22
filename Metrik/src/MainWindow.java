@@ -4,11 +4,20 @@ import java.awt.event.*;
 
 public class MainWindow extends Frame implements WindowListener {
 	
+	static BackgroundColor isSetColor = new BackgroundColor(); 
+	
+	Drawing draw = new Drawing(isSetColor.color); 
+	MainMenuBar menu = new MainMenuBar();  
+	
+	
+	public int auswahl; 
+	
 	public MainWindow() {
-		setTitle("Programm für Aufgabe 1 in Softwaretechnik Verison 1.0");
+		setTitle("Programm für Aufgabe 1 in Softwaretechnik Verison 1.1.1");
 		setSize(700, 700); 
 		addWindowListener(this);
-		add(new Drawing()); 
+		add(draw); 
+		setMenuBar(menu);
 
 	}
 	
@@ -16,8 +25,6 @@ public class MainWindow extends Frame implements WindowListener {
 		setVisible(true);
 	}
 
-	
-	
 	
 	
 	@Override
@@ -58,5 +65,9 @@ public class MainWindow extends Frame implements WindowListener {
 		
 		
 	}
+
+
+
+	
 
 }
